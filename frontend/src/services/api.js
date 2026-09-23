@@ -1,4 +1,6 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL =
+    import.meta.env.VITE_API_URL ||
+    "http://127.0.0.1:8000";
 
 
 function getAuthHeaders() {
@@ -38,23 +40,15 @@ async function handleResponse(
 }
 
 
-// =========================================================
-// AUTHENTICATION
-// =========================================================
-
-export async function loginUser(
-    username,
-    password
-) {
+// AUTH
+export async function loginUser(username, password) {
     const response = await fetch(
         `${API_URL}/auth/login`,
         {
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json",
             },
-
             body: JSON.stringify({
                 username,
                 password,
@@ -72,19 +66,14 @@ export async function loginUser(
 }
 
 
-export async function registerUser(
-    username,
-    password
-) {
+export async function registerUser(username, password) {
     const response = await fetch(
         `${API_URL}/auth/register`,
         {
             method: "POST",
-
             headers: {
                 "Content-Type": "application/json",
             },
-
             body: JSON.stringify({
                 username,
                 password,
@@ -102,10 +91,7 @@ export async function registerUser(
 }
 
 
-// =========================================================
-// DASHBOARD / HISTORY
-// =========================================================
-
+// HISTORY
 export async function getScanHistory() {
     const response = await fetch(
         `${API_URL}/history/scans`,
@@ -123,9 +109,7 @@ export async function getScanHistory() {
 }
 
 
-export async function getScanById(
-    scanId
-) {
+export async function getScanById(scanId) {
     const response = await fetch(
         `${API_URL}/history/scans/${scanId}`,
         {
@@ -142,10 +126,7 @@ export async function getScanById(
 }
 
 
-// =========================================================
-// NETWORK DISCOVERY
-// =========================================================
-
+// NETWORK
 export async function getNetworkDevices() {
     const response = await fetch(
         `${API_URL}/network/discover`,
@@ -163,13 +144,8 @@ export async function getNetworkDevices() {
 }
 
 
-// =========================================================
-// PORT SCANNER
-// =========================================================
-
-export async function scanPorts(
-    target
-) {
+// SCANNER
+export async function scanPorts(target) {
     const response = await fetch(
         `${API_URL}/scanner/ports?target=${encodeURIComponent(target)}`,
         {
@@ -186,10 +162,7 @@ export async function scanPorts(
 }
 
 
-// =========================================================
 // FINDINGS
-// =========================================================
-
 export async function getFindings() {
     const response = await fetch(
         `${API_URL}/findings/`,

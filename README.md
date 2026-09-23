@@ -5,6 +5,13 @@
 NetSentry is a network security monitoring and threat detection platform designed to discover network assets, perform authorized network scans, identify exposed services, analyze security exposure using rule-based detection, generate evidence-based findings, and maintain a persistent security assessment history.
 
 ---
+## 🌐 Live Demo
+
+🚀 **Live Application:** https://netsentry-l0s8.onrender.com
+
+📡 **Backend API:** https://netsentry-backend-fiud.onrender.com
+
+📚 **API Documentation:** https://netsentry-backend-fiud.onrender.com/docs
 
 # 🚀 Features
 
